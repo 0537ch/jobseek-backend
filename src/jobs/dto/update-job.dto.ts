@@ -11,12 +11,10 @@ import {
   ValidatorConstraint,
   ValidatorConstraintInterface,
 } from 'class-validator';
-import { JobType } from '.prisma/client';
+import { JobType } from '@prisma/client';
 
 @ValidatorConstraint({ name: 'SalaryRangeUpdate', async: false })
-export class SalaryRangeUpdateConstraint
-  implements ValidatorConstraintInterface
-{
+export class SalaryRangeUpdateConstraint implements ValidatorConstraintInterface {
   validate(_value: unknown, validationArguments?: ValidationArguments) {
     const obj = validationArguments?.object as Record<string, unknown>;
     if (!obj) return true;
